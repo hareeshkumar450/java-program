@@ -1,20 +1,18 @@
-import java.util.*;
-public class palindrome {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();  
-        int reverse=0;
-        while (n != 0) {
-            int rem = n % 10;  
-            reverse=reverse*10+rem;
-            n = n / 10;  
-        }
-        if(reverse!=n)
+public class Main {
+    public boolean fun(String s,int i,int j)
+    {
+        if(i==j)
         {
-            System.out.println("palindrome");
+            return true;
         }
-        else{
-            System.out.println("not palindrome");
-        }
+        if(s.charAt(i)!=s.charAt(j))return false;
+        return fun(s,i+1,j-1);
     }
-}
+    public static void main(String[] args){
+        Main m=new Main();
+        String s="121";
+        int i=0;
+        int j=s.length()-1;
+        System.out.println(m.fun(s,i,j));
+    }
+    }
